@@ -1,0 +1,35 @@
+using UnityEngine;
+using System.Numerics;
+
+public class PlayerWalkCommand : MonoBehaviour
+{
+    public Rigidbody myRigidbody;
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
+            myRigidbody.velocity = UnityEngine.Vector2.up * 10;
+        }
+        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        {
+            myRigidbody.velocity = UnityEngine.Vector2.down * 5;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            myRigidbody.velocity = UnityEngine.Vector2.left * 2;
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            myRigidbody.velocity = UnityEngine.Vector2.right * 2;
+        }
+        else
+        {
+            myRigidbody.velocity = UnityEngine.Vector2.zero;
+        }
+    }
+}
